@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<pfsensepkgs>
+	<package>
+		<name>telegraf</name>
+		<website>https://packages.pfsense.org/</website>
+		<descr><![CDATA[Telegraf metrics collecting agent]]></descr>
+		<version>%%PKGVERSION%%</version>
+		<configurationfile>telegraf.xml</configurationfile>
+	</package>
+</pfsensepkgs>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE packagegui SYSTEM "../schema/packages.dtd">
+<?xml-stylesheet type="text/xsl" href="../xsl/package.xsl"?>
+<packagegui>
+	<copyright>
+<![CDATA[
+/*
+ * telegraf.xml
+ */
+	]]>
+	</copyright>
+	<title>Services: Telegraf</title>
+	<name>telegraf</name>
+	<include_file>/usr/local/pkg/telegraf.inc</include_file>
+	<menu>
+		<name>Telegraf</name>
+		<section>Services</section>
+		<url>/pkg_edit.php?xml=telegraf.xml</url>
+	</menu>
+	<service>
+		<name>telegraf</name>
+		<rcfile>telegraf-daemon.sh</rcfile>
+		<description>Telegraf metrics collecting agent</description>
+	</service>
+	<fields>
+		<field>
+			<name>Agent options</name>
+			<type>listtopic</type>
+		</field>
+		<field>
+			<fielddescr>Enable Telegraf</fielddescr>
+			<fieldname>enable</fieldname>
+			<description>Enables the Telegraf agent</description>
+			<type>checkbox</type>
+			<enablefields>output_plugin</enablefields>
+		</field>
+		<field>
+			<name>Output options</name>
+			<type>listtopic</type>
+		</field>
+		<field>
+			<fielddescr>Output plug-in</fielddescr>
+			<fieldname>output_plugin</fieldname>
+			<type>select</type>
+			<default_value>influxdb</default_value>
+			<options>
+				<option><name>Graphite</name><value>graphite</value></option>
+				<option><name>InfluxDB</name><value>influxdb</value></option>
+			</options>
+			<typehint>Select the type of output sink to send all collected metrics</typehint>
+			<required />
+		</field>
+		<field>
+			<fielddescr>Output destination</fielddescr>
+			<fieldname>output_destination</fieldname>
+			<description>
+				<![CDATA[
+				For Graphite this looks like <em>localhost:2003</em><br />
+				InfluxDB destinations looks like <em>http://localhost:8086</em> or <em>udp://localhost:8089</em> (for UDP endpoints)<br />
+				]]>
+			</description>
+			<type>input</type>
+		</field>
+		<field>
+			<fielddescr>User name</fielddescr>
+			<fieldname>username</fieldname>
+			<type>input</type>
+		</field>
+		<field>
+			<fielddescr>Password</fielddescr>
+			<fieldname>password</fieldname>
+			<type>password</type>
+		</field>
+		<field>
+			<name>Input options</name>
+			<type>listtopic</type>
+		</field>
+	</fields>
+	<custom_php_resync_config_command>
+		setup_telegraf();
+	</custom_php_resync_config_command>
+	<custom_php_deinstall_command>
+		telegraf_deinstall_command();
+	</custom_php_deinstall_command>
+</packagegui>
