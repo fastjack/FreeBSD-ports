@@ -63,6 +63,35 @@
 			<name>Input options</name>
 			<type>listtopic</type>
 		</field>
+		<field>
+			<fielddescr>CPU</fielddescr>
+			<fieldname>input_cpu</fieldname>
+			<description>Report metrics on CPU usage?</description>
+			<enablefields>input_cpu_percpu,input_cpu_totalcpu,input_cpu_rawcputime</enablefields>
+			<type>checkbox</type>
+			<default_value>on</default_value>
+		</field>
+		<field>
+			<fielddescr>per CPU</fielddescr>
+			<fieldname>input_cpu_percpu</fieldname>
+			<description>Report per-CPU stats?</description>
+			<type>checkbox</type>
+			<default_value>on</default_value>
+		</field>
+		<field>
+			<fielddescr>Total CPU</fielddescr>
+			<fieldname>input_cpu_totalcpu</fieldname>
+			<description>Report total system cpu stats?</description>
+			<type>checkbox</type>
+			<default_value>on</default_value>
+		</field>
+		<field>
+			<fielddescr>Raw CPU time metrics</fielddescr>
+			<fieldname>input_cpu_rawcputime</fieldname>
+			<description>Collect raw CPU time metrics?</description>
+			<type>checkbox</type>
+			<default_value>off</default_value>
+		</field>
 	</fields>
 	<custom_php_resync_config_command>
 		setup_telegraf();
