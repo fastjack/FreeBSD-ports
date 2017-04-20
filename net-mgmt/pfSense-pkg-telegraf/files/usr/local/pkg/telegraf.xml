@@ -32,31 +32,19 @@
 			<fieldname>enable</fieldname>
 			<description>Enables the Telegraf agent</description>
 			<type>checkbox</type>
-			<enablefields>output_plugin</enablefields>
+			<enablefields>output_plugin,input_cpu</enablefields>
 		</field>
 		<field>
-			<name>Output options</name>
+			<name>InfluxDB server</name>
 			<type>listtopic</type>
-		</field>
-		<field>
-			<fielddescr>Output plug-in</fielddescr>
-			<fieldname>output_plugin</fieldname>
-			<type>select</type>
-			<default_value>influxdb</default_value>
-			<options>
-				<option><name>Graphite</name><value>graphite</value></option>
-				<option><name>InfluxDB</name><value>influxdb</value></option>
-			</options>
-			<typehint>Select the type of output sink to send all collected metrics</typehint>
-			<required />
 		</field>
 		<field>
 			<fielddescr>Output destination</fielddescr>
 			<fieldname>output_destination</fieldname>
 			<description>
 				<![CDATA[
-				For Graphite this looks like <em>localhost:2003</em><br />
-				InfluxDB destinations looks like <em>http://localhost:8086</em> or <em>udp://localhost:8089</em> (for UDP endpoints)<br />
+				<strong>Only InfluxDB is currently supported.</strong><br />
+				Typically <em>http://localhost:8086</em> or <em>udp://localhost:8089</em> (for UDP endpoints)<br />
 				]]>
 			</description>
 			<type>input</type>
